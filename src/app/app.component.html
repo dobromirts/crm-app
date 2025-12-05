@@ -1,0 +1,133 @@
+<igx-navbar class="navbar">
+  <igx-navbar-action>
+    <button igxIconButton="flat" [igxToggleAction]="navDrawer" class="icon-button">
+      <igx-icon class="icon">
+        menu
+      </igx-icon>
+    </button>
+  </igx-navbar-action>
+  <igx-navbar-title class="navbar-content">
+    <h6 class="content">
+      MyCRM
+    </h6>
+    <p class="ig-typography__body-2 content"></p>
+  </igx-navbar-title>
+  <button igxIconButton="flat" class="icon-button_1">
+    <igx-icon class="icon_1">
+      search
+    </igx-icon>
+  </button>
+  <button igxIconButton="flat" class="icon-button_1">
+    <igx-icon class="icon_1">
+      settings
+    </igx-icon>
+  </button>
+  <button igxIconButton="flat" class="icon-button_1">
+    <igx-icon class="icon_1">
+      notifications_none
+    </igx-icon>
+  </button>
+  <igx-avatar src="/assets/Avatar5.png" shape="circle" [igxToggleAction]="userDropDown" class="avatar"></igx-avatar>
+</igx-navbar>
+<div class="row-layout group">
+  <igx-nav-drawer [pin]="true" width="240px" #navDrawer class="nav-drawer">
+    <ng-template igxDrawerMini>
+      <div igxDrawerItem [routerLink]="[`/home`]" [active]="isActive(`/home`)">
+        <igx-icon class="icon_2">
+          dashboard
+        </igx-icon>
+      </div>
+      <div igxDrawerItem [routerLink]="[`/customers`]" [active]="isActive(`/customers`)">
+        <igx-icon class="icon_2">
+          people_outline
+        </igx-icon>
+      </div>
+      <div igxDrawerItem [routerLink]="[`/deals`]" [active]="isActive(`/deals`)">
+        <igx-icon class="icon_2">
+          work_outline
+        </igx-icon>
+      </div>
+      <div igxDrawerItem [routerLink]="[`/reports`]" [active]="isActive(`/reports`)">
+        <igx-icon class="icon_2">
+          bar_chart
+        </igx-icon>
+      </div>
+      <div igxDrawerItem [routerLink]="[`/support`]" [active]="isActive(`/support`)">
+        <igx-icon class="icon_2">
+          help_outline
+        </igx-icon>
+      </div>
+      <div igxDrawerItem [routerLink]="[`/calendar`]" [active]="isActive(`/calendar`)">
+        <igx-icon class="icon_2">
+          calendar_month
+        </igx-icon>
+      </div>
+      <div igxDrawerItem [routerLink]="[`/tasks`]" [active]="isActive(`/tasks`)">
+        <igx-icon class="icon_2">
+          task_alt
+        </igx-icon>
+      </div>
+    </ng-template>
+    <ng-template igxDrawer>
+      <div igxDrawerItem [routerLink]="[`/home`]" [active]="isActive(`/home`)">
+        <igx-icon class="icon_2">
+          dashboard
+        </igx-icon>
+        <span>Dashboard</span>
+      </div>
+      <div igxDrawerItem [routerLink]="[`/customers`]" [active]="isActive(`/customers`)">
+        <igx-icon class="icon_2">
+          people_outline
+        </igx-icon>
+        <span>Customers</span>
+      </div>
+      <div igxDrawerItem [routerLink]="[`/deals`]" [active]="isActive(`/deals`)">
+        <igx-icon class="icon_2">
+          work_outline
+        </igx-icon>
+        <span>Deals</span>
+      </div>
+      <div igxDrawerItem [routerLink]="[`/reports`]" [active]="isActive(`/reports`)">
+        <igx-icon class="icon_2">
+          bar_chart
+        </igx-icon>
+        <span>Reports</span>
+      </div>
+      <div igxDrawerItem [routerLink]="[`/support`]" [active]="isActive(`/support`)">
+        <igx-icon class="icon_2">
+          help_outline
+        </igx-icon>
+        <span>Support</span>
+      </div>
+      <div igxDrawerItem [routerLink]="[`/calendar`]" [active]="isActive(`/calendar`)">
+        <igx-icon class="icon_2">
+          calendar_month
+        </igx-icon>
+        <span>Calendar</span>
+      </div>
+      <div igxDrawerItem [routerLink]="[`/tasks`]" [active]="isActive(`/tasks`)">
+        <igx-icon class="icon_2">
+          task_alt
+        </igx-icon>
+        <span>Tasks</span>
+      </div>
+    </ng-template>
+  </igx-nav-drawer>
+  <div class="view-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<igx-drop-down #userDropDown class="user-drop-down">
+  <igx-drop-down-item [isHeader]="true">
+    Hi, firstName
+  </igx-drop-down-item>
+  <igx-drop-down-item>
+    Profile
+  </igx-drop-down-item>
+  <igx-drop-down-item>
+    Settings
+  </igx-drop-down-item>
+  <igx-drop-down-item>
+    Sign out
+  </igx-drop-down-item>
+</igx-drop-down>

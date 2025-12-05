@@ -1,0 +1,14 @@
+<igx-grid [data]="northwindSwaggerCategoryDto" primaryKey="categoryId" [allowFiltering]="true" filterMode="excelStyleFilter" class="grid">
+  <igx-column field="categoryId" dataType="number" header="categoryId" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="description" dataType="string" header="description" [filterable]="true" [sortable]="true" [maxlength]="500" [selectable]="false"></igx-column>
+  <igx-column field="name" dataType="string" header="name" [filterable]="true" [sortable]="true" required="true" [minlength]="3" [maxlength]="50" [selectable]="false"></igx-column>
+</igx-grid>
+<div class="column-layout demo-content">
+  <img src="/assets/start-building.svg" alt="" class="image" />
+  <h5 class="h5">
+    Start building!
+  </h5>
+  <p class="text">
+    Remove the "demo-content" container, and add your own content.
+  </p>
+</div>
