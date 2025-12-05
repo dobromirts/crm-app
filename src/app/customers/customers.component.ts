@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { IGridEditDoneEventArgs, IGX_CHIPS_DIRECTIVES, IGX_DIALOG_DIRECTIVES, IGX_GRID_ACTION_STRIP_DIRECTIVES, IGX_GRID_DIRECTIVES, IGX_INPUT_GROUP_DIRECTIVES, IgxButtonDirective, IgxDialogComponent, IgxIconComponent, IgxPaginatorComponent, IgxSnackbarComponent, IRowDataEventArgs } from 'igniteui-angular';
+import { IGX_DIALOG_DIRECTIVES, IGX_INPUT_GROUP_DIRECTIVES, IgxButtonDirective, IgxDialogComponent, IgxIconComponent, IgxSnackbarComponent } from 'igniteui-angular';
 import { firstValueFrom, Subject, take, takeUntil } from 'rxjs';
 import { AddressDtoForm } from '../models/northwind-swagger/address-dto-forms';
 import { CustomerDto } from '../models/northwind-swagger/customer-dto';
@@ -11,7 +10,7 @@ import { NorthwindSwaggerService } from '../services/northwind-swagger.service';
 
 @Component({
   selector: 'app-customers',
-  imports: [IGX_GRID_ACTION_STRIP_DIRECTIVES, IGX_INPUT_GROUP_DIRECTIVES, IGX_DIALOG_DIRECTIVES, IGX_CHIPS_DIRECTIVES, IGX_GRID_DIRECTIVES, IgxIconComponent, IgxButtonDirective, IgxPaginatorComponent, IgxSnackbarComponent, ReactiveFormsModule, RouterLink],
+  imports: [IGX_INPUT_GROUP_DIRECTIVES, IGX_DIALOG_DIRECTIVES, IgxIconComponent, IgxButtonDirective, IgxSnackbarComponent, ReactiveFormsModule],
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.scss']
 })
@@ -66,16 +65,6 @@ export class CustomersComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
     this.grid_Data_Request$.complete();
-  }
-
-  public async rowAddedGrid(e: IRowDataEventArgs): Promise<void> {
-    await firstValueFrom(this.northwindSwaggerService.postCustomerDto(e.rowData as CustomerDto));
-  }
-
-  public async rowEditDoneGrid(e: IGridEditDoneEventArgs): Promise<void> {
-    if(e.isAddRow == false) {
-      await firstValueFrom(this.northwindSwaggerService.putCustomerDto((e.rowData as CustomerDto)?.customerId ?? '', e.rowData as CustomerDto));
-    }
   }
 
   public async ngSubmitCustomerDto(): Promise<void> {

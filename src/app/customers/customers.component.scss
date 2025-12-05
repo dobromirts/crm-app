@@ -123,25 +123,9 @@
   height: max-content;
   min-width: min-content;
 }
-.chip {
-  width: max-content;
-  height: max-content;
-}
-.icon_1 {
-  --size: 18px;
-  font-size: 18px;
-  width: 18px;
-  height: 18px;
-}
 .button {
   height: max-content;
   flex-shrink: 0;
-}
-.button_1 {
-  width: 100%;
-  height: max-content;
-  min-width: 100%;
-  max-width: 100%;
 }
 .new_customer_form {
   justify-content: flex-start;
@@ -162,14 +146,8 @@
   height: max-content;
   min-width: min-content;
 }
-.button_2 {
+.button_1 {
   flex-shrink: 0;
-}
-.grid {
-  --ig-size: var(--ig-size-medium);
-  min-height: 0;
-  flex-grow: 1;
-  flex-basis: 0;
 }
 .new-customer-dialog {
   position: absolute;

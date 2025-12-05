@@ -31,49 +31,7 @@
       </div>
     </div>
   </div>
-  <div class="column-layout group">
-    <igx-grid [data]="grid_Data_Request?.items ?? []" primaryKey="customerId" rowSelection="single" [hideRowSelectors]="true" columnSelection="multiple" [rowEditable]="true" [allowAdvancedFiltering]="true" pagingMode="remote" [moving]="true" [allowFiltering]="true" filterMode="excelStyleFilter" (rowAdded)="rowAddedGrid($event)" (rowSelectionChanging)="selectedCustomer = $event.newSelection[0]" (rowEditDone)="rowEditDoneGrid($event)" class="grid">
-      <igx-grid-toolbar>
-        <igx-grid-toolbar-actions>
-          <igx-grid-toolbar-pinning></igx-grid-toolbar-pinning>
-          <igx-grid-toolbar-hiding></igx-grid-toolbar-hiding>
-          <igx-grid-toolbar-exporter></igx-grid-toolbar-exporter>
-          <igx-grid-toolbar-advanced-filtering></igx-grid-toolbar-advanced-filtering>
-        </igx-grid-toolbar-actions>
-        <igx-grid-toolbar-title>Grid Toolbar</igx-grid-toolbar-title>
-      </igx-grid-toolbar>
-      <igx-paginator [perPage]="grid_Page_Size" [totalRecords]="grid_Data_Request?.totalRecordsCount ?? 0" [page]="grid_Page_Index" (perPageChange)="grid_Page_Size = $event" (pageChange)="grid_Page_Index = $event"></igx-paginator>
-      <igx-column field="customerId" dataType="string" header="customerId" width="137px" [pinned]="true" [editable]="false" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true">
-        <ng-template igxCell let-cell="cell">
-          <button igxButton="flat" type="button" [routerLink]="[`/customer-details/${cell.value}`]" class="button_1">
-            {{ cell.value }}
-          </button>
-        </ng-template>
-      </igx-column>
-      <igx-column field="companyName" dataType="string" header="companyName" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [maxlength]="100"></igx-column>
-      <igx-column field="contactName" dataType="string" header="contactName" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [maxlength]="50"></igx-column>
-      <igx-column field="contactTitle" dataType="string" header="contactTitle" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [maxlength]="50"></igx-column>
-      <igx-column field="address.phone" dataType="string" header="Phone" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" pattern="^\+?[0-9][0-9\-]{1,14}$">
-        <ng-template igxCell let-cell="cell">
-          <igx-chip class="chip">
-            <igx-prefix>
-              <igx-icon class="icon_1">
-                phone
-              </igx-icon>
-            </igx-prefix>
-            {{ cell.value }}
-          </igx-chip>
-        </ng-template>
-      </igx-column>
-      <igx-column field="address.country" dataType="string" header="Country" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [maxlength]="50"></igx-column>
-      <igx-column field="address.street" dataType="string" header="Street" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [maxlength]="100"></igx-column>
-      <igx-column field="address.city" dataType="string" header="City" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [maxlength]="50"></igx-column>
-      <igx-action-strip>
-        <igx-grid-pinning-actions></igx-grid-pinning-actions>
-        <igx-grid-editing-actions [addRow]="true"></igx-grid-editing-actions>
-      </igx-action-strip>
-    </igx-grid>
-  </div>
+  <div class="column-layout group"></div>
 </div>
 <igx-dialog [closeOnEscape]="false" #newCustomerDialog class="new-customer-dialog">
   <igx-dialog-title>
@@ -196,14 +154,14 @@
         Uh-oh! Something went wrong.
       </igx-snackbar>
       <div class="row-layout group_2">
-        <button igxButton="flat" type="reset" class="button_2">
+        <button igxButton="flat" type="reset" class="button_1">
           Reset
         </button>
         <div class="row-layout group_3">
-          <button igxButton="outlined" type="button" (click)="clickButton()" class="button_2">
+          <button igxButton="outlined" type="button" (click)="clickButton()" class="button_1">
             Cancel
           </button>
-          <button igxButton="contained" type="submit" class="button_2">
+          <button igxButton="contained" type="submit" class="button_1">
             Add
           </button>
         </div>

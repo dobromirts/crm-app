@@ -9,7 +9,6 @@ import { DealsComponent } from './deals/deals.component';
 import { ReportsComponent } from './reports/reports.component';
 import { SupportComponent } from './support/support.component';
 import { CalendarComponent } from './calendar/calendar.component';
-import { TasksComponent } from './tasks/tasks.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,6 +20,5 @@ export const routes: Routes = [
   { path: 'reports', component: ReportsComponent, data: { text: 'Reports' } },
   { path: 'support', component: SupportComponent, data: { text: 'Support' } },
   { path: 'calendar', component: CalendarComponent, data: { text: 'Calendar' } },
-  { path: 'tasks', component: TasksComponent, data: { text: 'Tasks' } },
   { path: '**', component: PageNotFoundComponent } // must always be last
 ];
