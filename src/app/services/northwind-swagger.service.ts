@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
-import { CategoryDto } from '../models/northwind-swagger/category-dto';
 import { CustomerDto } from '../models/northwind-swagger/customer-dto';
 import { CustomerDtoPagedResultDto } from '../models/northwind-swagger/customer-dto-paged-result-dto';
 import { OrderDto } from '../models/northwind-swagger/order-dto';
@@ -60,31 +59,6 @@ export class NorthwindSwaggerService {
       .pipe(catchError(ErrorHandlerService.handleError<CustomerDto | undefined>('postCustomerDto', undefined)));
   }
 
-  public putCustomerDto(id: string, data?: CustomerDto): Observable<CustomerDto | undefined> {
-    const headers: HttpHeaders | Record<string, string | string[]> = {
-      Authorization: 'Bearer <auth_value>',
-    };
-    const options = {
-      headers,
-    };
-    const body = data ?? {
-      customerId: 'string',
-      companyName: 'string',
-      contactName: 'string',
-      contactTitle: 'string',
-      address: {
-        street: 'string',
-        city: 'string',
-        region: 'string',
-        postalCode: 'string',
-        country: 'string',
-        phone: 'string'
-      }
-    };
-    return this.http.put<CustomerDto | undefined>(`${API_ENDPOINT}/Customers/${id}`, body, options)
-      .pipe(catchError(ErrorHandlerService.handleError<CustomerDto | undefined>('putCustomerDto', undefined)));
-  }
-
   public getCustomerDto(id: string): Observable<CustomerDto | undefined> {
     return this.http.get<CustomerDto | undefined>(`${API_ENDPOINT}/Customers/${id}`)
       .pipe(catchError(ErrorHandlerService.handleError<CustomerDto | undefined>('getCustomerDto', undefined)));
@@ -98,10 +72,5 @@ export class NorthwindSwaggerService {
   public getProductDtoList(id: number): Observable<ProductDto[]> {
     return this.http.get<ProductDto[]>(`${API_ENDPOINT}/Orders/${id}/Products`)
       .pipe(catchError(ErrorHandlerService.handleError<ProductDto[]>('getProductDtoList', [])));
-  }
-
-  public getCategoryDtoList(): Observable<CategoryDto[]> {
-    return this.http.get<CategoryDto[]>(`${API_ENDPOINT}/Categories`)
-      .pipe(catchError(ErrorHandlerService.handleError<CategoryDto[]>('getCategoryDtoList', [])));
   }
 }
